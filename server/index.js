@@ -6,8 +6,8 @@ const app = express()
 app.use(express.json());
 
 app.post('/api', async (req, res) => {
-	const { id } = req.body;
-	let r = await fetchData(`https://in.pinterest.com/pin/${id}/`)
+	const { url } = req.body;
+	let r = await fetchData(url)
 	await res.send(r)
 })
 

@@ -29,12 +29,11 @@ function createObj(userName, userURL, headline, contentURL, datePublished, video
 
 
 async function fetchData(u){
-	if(!!!u) return null
+	// if(u) return null
 	let r = {};
 	await axios.get(u)
 	.then(async ({ data }) => { 
 		const $ = cheerio.load(data);
-
 		let imageOBJ = {}, videoOBJ = {};
 
 		$('script').get().forEach(child => {
@@ -50,9 +49,10 @@ async function fetchData(u){
 			}
 		})
 
-		const { author:{ name, url }, headline, image, datePublished } = await imageOBJ
-		const { contentUrl:videoURL } = await videoOBJ
-		r = createObj(name, url, headline, image, datePublished, videoURL)
+
+		r = {...videoOBJ, ...imageOBJ}
+		console.log(r)
+
 	}).catch(err => {
 		r = {
 			error: true,

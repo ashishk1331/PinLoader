@@ -1,15 +1,16 @@
-import { Coffee, ToiletPaper } from 'phosphor-react'
+import { Coffee, ToiletPaper, HeartStraight } from '@phosphor-icons/react'
 
 function Footer(){
 	return (
-		<footer className="text-xl my-4">
+		<footer className="text-xl my-4 p-4 bg-[white] rounded-xl border-2 border-black flex flex-col items-center">
 			<p className="flex items-center">
-				Made with
-				<Coffee weight="fill" size="24" className=" mx-1" />
+				Made in
+				<HeartStraight weight="fill" size="24" className="fill-red-400 mx-1" />
 			</p>
-			<p className="flex items-center">
-				<ToiletPaper weight="fill" size="24" className="mx-1" />
-				on a toilet.
+			<p>
+				by 
+				{' '}
+				<a href="https://github.com/hugekontrast" className="underline">AshishK</a>
 			</p>
 		</footer>
 	)
