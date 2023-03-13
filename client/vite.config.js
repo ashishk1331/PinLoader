@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   server:{
     proxy:{
-      "/api":"https://pinloader.onrender.com",
+      "/api":"https://pinloader-backend.onrender.com",
     }
   },
   plugins: [react()],
