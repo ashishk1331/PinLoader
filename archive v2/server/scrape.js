@@ -28,7 +28,7 @@ function createObj(userName, userURL, headline, contentURL, datePublished, video
 */
 
 
-async function fetchData(u){
+export default async function fetchData(u){
 	// if(u) return null
 	let r = {};
 	await axios.get(u)
@@ -62,4 +62,4 @@ async function fetchData(u){
 	return await r
 }
 
-export default fetchData
+// fetchData('https://in.pinterest.com/pin/618119117620045718/')
