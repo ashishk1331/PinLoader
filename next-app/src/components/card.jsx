@@ -1,15 +1,20 @@
 import Image from 'next/image'
 import { ArrowDownTrayIcon } from '@heroicons/react/24/outline'
 import { formatDistance, subDays } from 'date-fns'
+import { useState } from 'react'
+
+import { cn } from '../util/cn'
 
 export default function card(props) {
+
+	const avatarURL = props.data[0].author.avatarUrl ? props.data[0].author.avatarUrl : "";
 
 	return (
 		<li className="w-[360px] mx-auto my-12">
 			<section className="w-full h-flex mb-4">
 				<Image 
-					src={props.data[0].author.avatarUrl}
-					className="aspect-square overflow-hidden rounded-full"
+					src={avatarUrl}
+					className="aspect-square overflow-hidden rounded-full bg-gray-300"
 					width={32}
 					height={32}
 					alt="@user-image"
@@ -22,7 +27,7 @@ export default function card(props) {
 				</p>
 			</section>
 
-			<section className="w-full rounded aspect-square overflow-hidden h-flex">
+			<section className="w-full rounded aspect-square overflow-hidden h-flex bg-gray-300">
 				{
 					props.data.length > 1 ?
 					<video className="w-full object-cover m-auto" autoPlay={true} muted loop>
